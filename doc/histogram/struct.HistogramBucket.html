@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `HistogramConfig` struct in crate `histogram`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, HistogramConfig">
+    <meta name="description" content="API documentation for the Rust `HistogramBucket` struct in crate `histogram`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, HistogramBucket">
 
-    <title>histogram::HistogramConfig - Rust</title>
+    <title>histogram::HistogramBucket - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../main.css">
 
@@ -26,7 +26,7 @@
 
     <section class="sidebar">
         
-        <p class='location'><a href='index.html'>histogram</a></p><script>window.sidebarCurrent = {name: 'HistogramConfig', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'><a href='index.html'>histogram</a></p><script>window.sidebarCurrent = {name: 'HistogramBucket', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </section>
 
     <nav class="sub">
@@ -41,21 +41,20 @@
     </nav>
 
     <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>histogram</a>::<wbr><a class='struct' href=''>HistogramConfig</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>histogram</a>::<wbr><a class='struct' href=''>HistogramBucket</a></span><span class='out-of-band'><span id='render-detail'>
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-4' class='srclink' href='../src/histogram/lib.rs.html#54-58' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct HistogramConfig {
-    pub precision: <a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
-    pub max_memory: <a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
-    pub max_value: <a href='http://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
+        </span><a id='src-85' class='srclink' href='../src/histogram/lib.rs.html#90-94' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct HistogramBucket {
+    pub value: <a href='http://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
+    pub count: <a href='http://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
+    pub id: <a href='http://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
 }</pre><h2 class='fields'>Fields</h2>
 <table><tr class='stab '>
-                                  <td id='structfield.precision'><code>precision</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.max_memory'><code>max_memory</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.max_value'><code>max_value</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../histogram/struct.HistogramConfig.html' title='histogram::HistogramConfig'>HistogramConfig</a></code></h3><div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/default/trait.Default.html#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../histogram/struct.HistogramConfig.html' title='histogram::HistogramConfig'>HistogramConfig</a></code></h4>
-</div></section>
+                                  <td id='structfield.value'><code>value</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.count'><code>count</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.id'><code>id</code></td><td></td></tr></table></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

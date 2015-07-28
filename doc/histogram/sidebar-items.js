@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Histogram",""],["HistogramConfig",""],["HistogramCounters",""],["HistogramData",""],["HistogramProperties",""]]});
+initSidebarItems({"struct":[["Histogram",""],["HistogramBucket",""],["HistogramConfig",""],["HistogramCounters",""],["HistogramData",""],["HistogramProperties",""]]});
