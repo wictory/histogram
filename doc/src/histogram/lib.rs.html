@@ -783,6 +783,79 @@
 <span id="741">741</span>
 <span id="742">742</span>
 <span id="743">743</span>
+<span id="744">744</span>
+<span id="745">745</span>
+<span id="746">746</span>
+<span id="747">747</span>
+<span id="748">748</span>
+<span id="749">749</span>
+<span id="750">750</span>
+<span id="751">751</span>
+<span id="752">752</span>
+<span id="753">753</span>
+<span id="754">754</span>
+<span id="755">755</span>
+<span id="756">756</span>
+<span id="757">757</span>
+<span id="758">758</span>
+<span id="759">759</span>
+<span id="760">760</span>
+<span id="761">761</span>
+<span id="762">762</span>
+<span id="763">763</span>
+<span id="764">764</span>
+<span id="765">765</span>
+<span id="766">766</span>
+<span id="767">767</span>
+<span id="768">768</span>
+<span id="769">769</span>
+<span id="770">770</span>
+<span id="771">771</span>
+<span id="772">772</span>
+<span id="773">773</span>
+<span id="774">774</span>
+<span id="775">775</span>
+<span id="776">776</span>
+<span id="777">777</span>
+<span id="778">778</span>
+<span id="779">779</span>
+<span id="780">780</span>
+<span id="781">781</span>
+<span id="782">782</span>
+<span id="783">783</span>
+<span id="784">784</span>
+<span id="785">785</span>
+<span id="786">786</span>
+<span id="787">787</span>
+<span id="788">788</span>
+<span id="789">789</span>
+<span id="790">790</span>
+<span id="791">791</span>
+<span id="792">792</span>
+<span id="793">793</span>
+<span id="794">794</span>
+<span id="795">795</span>
+<span id="796">796</span>
+<span id="797">797</span>
+<span id="798">798</span>
+<span id="799">799</span>
+<span id="800">800</span>
+<span id="801">801</span>
+<span id="802">802</span>
+<span id="803">803</span>
+<span id="804">804</span>
+<span id="805">805</span>
+<span id="806">806</span>
+<span id="807">807</span>
+<span id="808">808</span>
+<span id="809">809</span>
+<span id="810">810</span>
+<span id="811">811</span>
+<span id="812">812</span>
+<span id="813">813</span>
+<span id="814">814</span>
+<span id="815">815</span>
+<span id="816">816</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! A native rust implementation of a histogram and percentiles which can offer</span>
 <span class='doccomment'>//! specified precision across the full range of stored values. This library is</span>
@@ -836,14 +909,16 @@
 
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>crate_name</span> <span class='op'>=</span> <span class='string'>&quot;histogram&quot;</span>]</span>
 
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Default</span>)]</span>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>fmt</span>;
+
+<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Default</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HistogramConfig</span> {
     <span class='kw'>pub</span> <span class='ident'>precision</span>: <span class='ident'>u32</span>,
     <span class='kw'>pub</span> <span class='ident'>max_memory</span>: <span class='ident'>u32</span>,
     <span class='kw'>pub</span> <span class='ident'>max_value</span>: <span class='ident'>u64</span>,
 }
 
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Default</span>)]</span>
+<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Default</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HistogramCounters</span> {
     <span class='ident'>entries_total</span>: <span class='ident'>u64</span>,
     <span class='ident'>missed_unknown</span>: <span class='ident'>u64</span>,
@@ -851,13 +926,14 @@
     <span class='ident'>missed_large</span>: <span class='ident'>u64</span>,
 }
 
+<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HistogramData</span> {
     <span class='ident'>data</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u64</span><span class='op'>&gt;</span>,
     <span class='ident'>counters</span>: <span class='ident'>HistogramCounters</span>,
     <span class='ident'>iterator</span>: <span class='ident'>usize</span>,
 }
 
-<span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>dead_code</span>)]</span>
+<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HistogramProperties</span> {
     <span class='ident'>buckets_inner</span>: <span class='ident'>u32</span>,
     <span class='ident'>buckets_outer</span>: <span class='ident'>u32</span>,
@@ -867,12 +943,14 @@
     <span class='ident'>linear_power</span>: <span class='ident'>u32</span>,
 }
 
+<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Histogram</span> {
     <span class='ident'>config</span>: <span class='ident'>HistogramConfig</span>,
     <span class='ident'>data</span>: <span class='ident'>HistogramData</span>,
     <span class='ident'>properties</span>: <span class='ident'>HistogramProperties</span>,
 }
 
+<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HistogramBucket</span> {
     <span class='kw'>pub</span> <span class='ident'>value</span>: <span class='ident'>u64</span>,
     <span class='kw'>pub</span> <span class='ident'>count</span>: <span class='ident'>u64</span>,
@@ -896,6 +974,12 @@
                 <span class='ident'>count</span>: <span class='self'>self</span>.<span class='ident'>data</span>.<span class='ident'>data</span>[<span class='ident'>current</span>],
             })
         }
+    }
+}
+
+<span class='kw'>impl</span> <span class='ident'>fmt</span>::<span class='ident'>Debug</span> <span class='kw'>for</span> <span class='ident'>Histogram</span> {
+    <span class='kw'>fn</span> <span class='ident'>fmt</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>f</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>fmt</span>::<span class='ident'>Formatter</span>) <span class='op'>-&gt;</span> <span class='ident'>fmt</span>::<span class='prelude-ty'>Result</span> {
+        <span class='macro'>write</span><span class='macro'>!</span>(<span class='ident'>f</span>, <span class='string'>&quot;({} total)&quot;</span>, <span class='self'>self</span>.<span class='ident'>data</span>.<span class='ident'>counters</span>.<span class='ident'>entries_total</span>)
     }
 }
 
@@ -964,6 +1048,33 @@
                 <span class='ident'>linear_power</span>: <span class='ident'>linear_power</span>,
             },
         })
+    }
+
+    <span class='doccomment'>/// clear the histogram data</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// # Example</span>
+    <span class='doccomment'>/// ```</span>
+    <span class='doccomment'>/// # use histogram::{Histogram,HistogramConfig};</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// let mut h = Histogram::new(</span>
+    <span class='doccomment'>///     HistogramConfig{</span>
+    <span class='doccomment'>///         max_memory: 0,</span>
+    <span class='doccomment'>///         max_value: 1000000,</span>
+    <span class='doccomment'>///         precision: 3,</span>
+    <span class='doccomment'>/// }).unwrap();</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// h.increment(1);</span>
+    <span class='doccomment'>/// assert_eq!(h.entries(), 1);</span>
+    <span class='doccomment'>/// h.clear();</span>
+    <span class='doccomment'>/// assert_eq!(h.entries(), 0);</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>clear</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) {
+        <span class='self'>self</span>.<span class='ident'>data</span>.<span class='ident'>counters</span> <span class='op'>=</span> <span class='ident'>Default</span>::<span class='ident'>default</span>();
+        <span class='self'>self</span>.<span class='ident'>data</span>.<span class='ident'>data</span> <span class='op'>=</span> <span class='ident'>Vec</span>::<span class='ident'>with_capacity</span>(<span class='self'>self</span>.<span class='ident'>properties</span>.<span class='ident'>buckets_total</span> <span class='kw'>as</span> <span class='ident'>usize</span>);
+
+        <span class='comment'>// vector is already sized to fit, just set the length accordingly</span>
+        <span class='kw'>unsafe</span> {
+            <span class='self'>self</span>.<span class='ident'>data</span>.<span class='ident'>data</span>.<span class='ident'>set_len</span>(<span class='self'>self</span>.<span class='ident'>properties</span>.<span class='ident'>buckets_total</span> <span class='kw'>as</span> <span class='ident'>usize</span>);
+        }
     }
 
     <span class='doccomment'>/// increment the count for a value</span>
@@ -1502,6 +1613,41 @@
         <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>15</span>), <span class='number'>16</span>);
         <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>25</span>), <span class='number'>32</span>);
         <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>35</span>), <span class='number'>64</span>);
+    }
+
+    <span class='attribute'>#[<span class='ident'>test</span>]</span>
+    <span class='kw'>fn</span> <span class='ident'>test_index_value_1</span>() {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>h</span> <span class='op'>=</span> <span class='ident'>Histogram</span>::<span class='ident'>new</span>(<span class='ident'>HistogramConfig</span> {
+            <span class='ident'>max_memory</span>: <span class='number'>0</span>,
+            <span class='ident'>max_value</span>: <span class='number'>1000</span>,
+            <span class='ident'>precision</span>: <span class='number'>2</span>,
+        }).<span class='ident'>unwrap</span>();
+
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>0</span>), <span class='number'>1</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>1</span>), <span class='number'>2</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>126</span>), <span class='number'>127</span>);
+
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>127</span>), <span class='number'>128</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>227</span>), <span class='number'>256</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>327</span>), <span class='number'>512</span>);
+    }
+
+    <span class='attribute'>#[<span class='ident'>test</span>]</span>
+    <span class='kw'>fn</span> <span class='ident'>test_index_value_2</span>() {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>h</span> <span class='op'>=</span> <span class='ident'>Histogram</span>::<span class='ident'>new</span>(<span class='ident'>HistogramConfig</span> {
+            <span class='ident'>max_memory</span>: <span class='number'>0</span>,
+            <span class='ident'>max_value</span>: <span class='number'>10000</span>,
+            <span class='ident'>precision</span>: <span class='number'>3</span>,
+        }).<span class='ident'>unwrap</span>();
+
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>0</span>), <span class='number'>1</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>1</span>), <span class='number'>2</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>1022</span>), <span class='number'>1023</span>);
+
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>1023</span>), <span class='number'>1024</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>2023</span>), <span class='number'>2048</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>3023</span>), <span class='number'>4096</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>h</span>.<span class='ident'>index_value</span>(<span class='number'>4023</span>), <span class='number'>8192</span>);
     }
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
