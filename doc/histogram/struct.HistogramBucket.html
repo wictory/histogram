@@ -48,7 +48,7 @@
         </span><a id='src-84' class='srclink' href='../src/histogram/lib.rs.html#176-180' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct HistogramBucket {
     // some fields omitted
-}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../histogram/struct.HistogramBucket.html' title='histogram::HistogramBucket'>HistogramBucket</a></code></h3><div class='impl-items'><h4 id='method.value' class='method'><code>fn <a href='#method.value' class='fnname'>value</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../histogram/struct.HistogramBucket.html' title='histogram::HistogramBucket'>HistogramBucket</a></code></h3><div class='impl-items'><h4 id='method.value' class='method'><code>fn <a href='#method.value' class='fnname'>value</a>(self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
 <div class='docblock'><p>return the sample value for the bucket</p>
 
 <h1 id='example' class='section-header'><a href='#example'>Example</a></h1><pre class='rust rust-example-rendered'>
@@ -58,7 +58,7 @@
 <span class='kw'>let</span> <span class='ident'>b</span> <span class='op'>=</span> <span class='ident'>h</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>();
 
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>b</span>.<span class='ident'>value</span>(), <span class='number'>1</span>);</pre>
-</div><h4 id='method.count' class='method'><code>fn <a href='#method.count' class='fnname'>count</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+</div><h4 id='method.count' class='method'><code>fn <a href='#method.count' class='fnname'>count</a>(self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
 <div class='docblock'><p>return the sample counts for the bucket</p>
 
 <h1 id='example' class='section-header'><a href='#example'>Example</a></h1><pre class='rust rust-example-rendered'>
@@ -68,7 +68,7 @@
 <span class='kw'>let</span> <span class='ident'>b</span> <span class='op'>=</span> <span class='ident'>h</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>();
 
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>b</span>.<span class='ident'>count</span>(), <span class='number'>0</span>);</pre>
-</div><h4 id='method.id' class='method'><code>fn <a href='#method.id' class='fnname'>id</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
+</div><h4 id='method.id' class='method'><code>fn <a href='#method.id' class='fnname'>id</a>(self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code></h4>
 <div class='docblock'><p>return the bucket id</p>
 
 <h1 id='example' class='section-header'><a href='#example'>Example</a></h1><pre class='rust rust-example-rendered'>
