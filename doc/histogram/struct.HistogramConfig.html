@@ -54,21 +54,21 @@
 <h1 id='example' class='section-header'><a href='#example'>Example</a></h1><pre class='rust rust-example-rendered'>
 
 <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c</span> <span class='op'>=</span> <span class='ident'>HistogramConfig</span>::<span class='ident'>new</span>();</pre>
-</div><h4 id='method.precision' class='method'><code>fn <a href='#method.precision' class='fnname'>precision</a>(&amp;mut self, precision: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; &amp;mut Self</code></h4>
+</div><h4 id='method.precision' class='method'><code>fn <a href='#method.precision' class='fnname'>precision</a>(&amp;mut self, precision: <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; &amp;mut Self</code></h4>
 <div class='docblock'><p>set HistogramConfig precision</p>
 
 <h1 id='example' class='section-header'><a href='#example'>Example</a></h1><pre class='rust rust-example-rendered'>
 
 <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c</span> <span class='op'>=</span> <span class='ident'>HistogramConfig</span>::<span class='ident'>new</span>();
 <span class='ident'>c</span>.<span class='ident'>precision</span>(<span class='number'>4</span>); <span class='comment'>// set to 4 significant figures</span></pre>
-</div><h4 id='method.max_memory' class='method'><code>fn <a href='#method.max_memory' class='fnname'>max_memory</a>(&amp;mut self, bytes: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; &amp;mut Self</code></h4>
+</div><h4 id='method.max_memory' class='method'><code>fn <a href='#method.max_memory' class='fnname'>max_memory</a>(&amp;mut self, bytes: <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; &amp;mut Self</code></h4>
 <div class='docblock'><p>set HistogramConfig memory limit</p>
 
 <h1 id='example' class='section-header'><a href='#example'>Example</a></h1><pre class='rust rust-example-rendered'>
 
 <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c</span> <span class='op'>=</span> <span class='ident'>HistogramConfig</span>::<span class='ident'>new</span>();
 <span class='ident'>c</span>.<span class='ident'>max_memory</span>(<span class='number'>1024</span><span class='op'>*</span><span class='number'>1024</span>); <span class='comment'>// cap Histogram at 1MB of data</span></pre>
-</div><h4 id='method.max_value' class='method'><code>fn <a href='#method.max_value' class='fnname'>max_value</a>(&amp;mut self, max: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; &amp;mut Self</code></h4>
+</div><h4 id='method.max_value' class='method'><code>fn <a href='#method.max_value' class='fnname'>max_value</a>(&amp;mut self, max: <a href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; &amp;mut Self</code></h4>
 <div class='docblock'><p>set HistogramConfig value limit</p>
 
 <h1 id='example' class='section-header'><a href='#example'>Example</a></h1><pre class='rust rust-example-rendered'>
