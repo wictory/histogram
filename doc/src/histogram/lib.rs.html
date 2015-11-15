@@ -1079,6 +1079,10 @@
 <span id="1037">1037</span>
 <span id="1038">1038</span>
 <span id="1039">1039</span>
+<span id="1040">1040</span>
+<span id="1041">1041</span>
+<span id="1042">1042</span>
+<span id="1043">1043</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! A native rust implementation of a histogram and percentiles which can offer</span>
 <span class='doccomment'>//! specified precision across the full range of stored values. This library is</span>
@@ -1380,6 +1384,10 @@
         <span class='comment'>// vector is already sized to fit, just set the length accordingly</span>
         <span class='kw'>unsafe</span> {
             <span class='ident'>data</span>.<span class='ident'>set_len</span>(<span class='ident'>buckets_total</span> <span class='kw'>as</span> <span class='ident'>usize</span>);
+        }
+
+        <span class='kw'>for</span> <span class='ident'>i</span> <span class='kw'>in</span> <span class='number'>0</span>..<span class='ident'>data</span>.<span class='ident'>len</span>() {
+            <span class='ident'>data</span>[<span class='ident'>i</span>] <span class='op'>=</span> <span class='number'>0</span>;
         }
 
         <span class='kw'>let</span> <span class='ident'>counters</span> <span class='op'>=</span> <span class='ident'>HistogramCounters</span>::<span class='ident'>new</span>();
