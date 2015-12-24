@@ -1096,6 +1096,31 @@
 <span id="1054">1054</span>
 <span id="1055">1055</span>
 <span id="1056">1056</span>
+<span id="1057">1057</span>
+<span id="1058">1058</span>
+<span id="1059">1059</span>
+<span id="1060">1060</span>
+<span id="1061">1061</span>
+<span id="1062">1062</span>
+<span id="1063">1063</span>
+<span id="1064">1064</span>
+<span id="1065">1065</span>
+<span id="1066">1066</span>
+<span id="1067">1067</span>
+<span id="1068">1068</span>
+<span id="1069">1069</span>
+<span id="1070">1070</span>
+<span id="1071">1071</span>
+<span id="1072">1072</span>
+<span id="1073">1073</span>
+<span id="1074">1074</span>
+<span id="1075">1075</span>
+<span id="1076">1076</span>
+<span id="1077">1077</span>
+<span id="1078">1078</span>
+<span id="1079">1079</span>
+<span id="1080">1080</span>
+<span id="1081">1081</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! A native rust implementation of a histogram and percentiles which can offer</span>
 <span class='doccomment'>//! specified precision across the full range of stored values. This library is</span>
@@ -1816,7 +1841,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Example</span>
     <span class='doccomment'>/// ```</span>
-    <span class='doccomment'>/// # use histogram::{Histogram,HistogramConfig};</span>
+    <span class='doccomment'>/// # use histogram::{Histogram, HistogramConfig};</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// let mut h = Histogram::new().unwrap();</span>
     <span class='doccomment'>///</span>
@@ -1827,7 +1852,32 @@
         <span class='self'>self</span>.<span class='ident'>data</span>.<span class='ident'>counters</span>.<span class='ident'>entries_total</span>
     }
 
-    <span class='kw'>fn</span> <span class='ident'>buckets_total</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>u64</span> {
+    <span class='doccomment'>/// return the number of buckets in the Histogram</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// # Example</span>
+    <span class='doccomment'>/// ```</span>
+    <span class='doccomment'>/// # use histogram::{Histogram, HistogramConfig};</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// let mut h = Histogram::new().unwrap();</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// assert_eq!(h.buckets_total(), 27023);</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// let mut c = HistogramConfig::new();</span>
+    <span class='doccomment'>/// c.max_value(1_000_000_000);</span>
+    <span class='doccomment'>/// let mut h = Histogram::configured(c).unwrap();</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// assert_eq!(h.buckets_total(), 21023);</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// c.precision(4);</span>
+    <span class='doccomment'>/// let mut h = Histogram::configured(c).unwrap();</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// assert_eq!(h.buckets_total(), 176383);</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// c.precision(2);</span>
+    <span class='doccomment'>/// let mut h = Histogram::configured(c).unwrap();</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// assert_eq!(h.buckets_total(), 2427);</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>buckets_total</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>u64</span> {
         <span class='self'>self</span>.<span class='ident'>properties</span>.<span class='ident'>buckets_total</span> <span class='kw'>as</span> <span class='ident'>u64</span>
     }
 }
